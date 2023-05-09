@@ -67,14 +67,10 @@ Päivityksen jälkeen valmista tuli
 
 ![image](https://user-images.githubusercontent.com/122887067/237057309-290de531-5db8-4c63-b8ec-eb407e81871e.png)
 
-# Windowsille käsin asennus
-## Spotify
+# Automatisointi
 
-## Discord
+Kesken
 
-## Steam
-
-## 
 
 
 
