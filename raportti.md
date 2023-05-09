@@ -1,1 +1,57 @@
-x
+## J
+
+Minulle tärkeitä sovelluksia linuxille.
+
+## Spotify
+
+Asensin Spotifyn käsin spotifyn ohjeen mukaan. https://www.spotify.com/fi/download/linux/
+
+    curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+Ja asensin Spotifyn clientin.
+
+    sudo apt-get update && sudo apt-get install spotify-client
+
+![image](https://user-images.githubusercontent.com/122887067/237043327-cf6fe69e-d76f-4e21-b8a6-533452009e55.png)
+
+## Discord
+
+Asensin Discordin `wget`in avulla
+
+    wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
+    
+Discordin deb binäärin latauksen jälkeen asensin sen `apt`in avulla.
+
+    sudo apt install ./discord.deb
+
+Discordin sai avattua kirjoittamalla `discord` terminaliin
+
+![image](https://user-images.githubusercontent.com/122887067/237050646-0e478c2d-2838-4666-bac7-25b6df45a6ed.png)
+
+## Steam
+
+Asensin Steamin `curl`in avulla
+
+  curl -O https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+
+Asensin Steam-paketin komennolla
+
+  sudo apt install ./steam.deb
+
+Kun asennus oli valmis, käynnistin Steam kirjoittamalla `steam` terminaaliin.
+
+Sen jälkeen steam lähti päivittämään
+
+![image](https://user-images.githubusercontent.com/122887067/237057003-982071a9-3cdd-4be3-86f8-f3b25d1e37bc.png)
+
+Päivityksen jälkeen valmista tuli
+
+![image](https://user-images.githubusercontent.com/122887067/237057309-290de531-5db8-4c63-b8ec-eb407e81871e.png)
+
+
+
+
+
+
+
