@@ -1,6 +1,24 @@
 ## J
 
-Minulle tärkeitä sovelluksia linuxille.
+Minulle tärkeitä sovelluksia linuxille ja windowsille automatisoitu saltilla.
+
+## Rauta
+
+    Koneen rauta ja käyttöjärjestelmä
+    CPU:  i7-13700K 5,4GHz
+    RAM:  32GB DDR5 5200Mhz
+    GPU:  RTX 3080 OC 10G
+    OS:   Windows 11 Pro, Versio 22H2
+    
+## Versiot. 
+    
+    Windows 11 Pro, Versio 22H2
+    Vagrant 2.3.4
+    Salt 3002.6
+    debian 5.10.158-2
+    
+
+# Linuxille käsin asennus
 
 ## Spotify
 
@@ -33,11 +51,11 @@ Discordin sai avattua kirjoittamalla `discord` terminaliin
 
 Asensin Steamin `curl`in avulla
 
-  curl -O https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+    curl -O https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 
 Asensin Steam-paketin komennolla
 
-  sudo apt install ./steam.deb
+     sudo apt install ./steam.deb
 
 Kun asennus oli valmis, käynnistin Steam kirjoittamalla `steam` terminaaliin.
 
@@ -49,7 +67,14 @@ Päivityksen jälkeen valmista tuli
 
 ![image](https://user-images.githubusercontent.com/122887067/237057309-290de531-5db8-4c63-b8ec-eb407e81871e.png)
 
+# Windowsille käsin asennus
+## Spotify
 
+## Discord
+
+## Steam
+
+## 
 
 
 
