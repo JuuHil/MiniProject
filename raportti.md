@@ -74,8 +74,9 @@ Päivityksen jälkeen valmista tuli
 Spotifyn kanssa oli eniten ongelmia, joten se ensimmäisenä. Spotifyn asentamisessa manuaalisesti piti määrittää Spotifyn Debian-varasto jonka jälkeen pystyi vasta asentamaan Spotifyn.
 
 spotify_key: 
-name:
-unless:
+name: lisää spotify-palvelimen julkisen avaimen APT-palvelimen avainten joukkoon
+unless: tarkistaa, onko avain jo asennettu, jos ei ole ajetaan ylempi komento.
+
 spotify-client:
 name: lähde mistä paketit ladataan (URL-osoite)
 file: tiedoston sijainti
