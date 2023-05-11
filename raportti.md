@@ -113,6 +113,8 @@ Kokeilin aluksi käyttää Curlia (vaihtelun vuoksi) ladatakseen Steamin, mutta 
 `wget`avulla sain asennettua Steamin-paketin ja aptin avulla se asentaa sen.
 creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei suorita sitä uudelleen, jos Steam on jo asennettuna.
 
+### TOIMII
+
         steam:
           cmd.run:
             - name: |
