@@ -137,11 +137,13 @@ juuhil@pug:/srv/salt/every$ cat init.sls
       pkg.installed:
         - name: spotify-client
         - refresh: True
-
+        
     discord:
-      pkg.installed:
-        - sources:
-          - discord: https://discord.com/api/download?platform=linux&format=deb
+      cmd.run:
+        - name: |
+            wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+            sudo apt install /tmp/discord.deb
+        - creates: /usr/bin/discord
 
     steam:
       cmd.run:
