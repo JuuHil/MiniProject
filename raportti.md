@@ -73,31 +73,38 @@ Päivityksen jälkeen valmista tuli
 
 Spotifyn kanssa oli eniten ongelmia, joten se ensimmäisenä. Spotifyn asentamisessa manuaalisesti piti määrittää Spotifyn Debian-varasto jonka jälkeen pystyi vasta asentamaan Spotifyn.
 
-pkgrepo.managed: 
+spotify_key: 
+name:
+unless:
+spotify-client:
 name: lähde mistä paketit ladataan (URL-osoite)
 file: tiedoston sijainti
 key_url: osoite jossa julkinen avain. (URL-osoite)
 key_server: määrittää käyttämään Ubuntu-avainpalvelinta ladatakseen julkisen avaimen.
- # Lisäsin key serverin testien jälkeen, ongelma korjattu 
-pkg.installed:
+
+spotify:
 name: nimi paketille, joka asennetaan.
 refresh: päivittää pakettivaraston ennen paketin asentamista.
 
-*JOS EI TOIMI* lisää manuaalisesti ensin `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F`
+
 
 `init.sls` tiedoston sisältö
 
-        spotify-client:
-          pkgrepo.managed:
-            - name: deb http://repository.spotify.com stable non-free
-            - file: /etc/apt/sources.list.d/spotify.list
-            - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-            - key_server: hkp://keyserver.ubuntu.com:80
-            # Lisäsin key serverin testien jälkeen, ongelma korjattu 
-        spotify:
-          pkg.installed:
-            - name: spotify-client
-            - refresh: True
+       spotify_key:
+      cmd.run:
+        - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
+        - unless: sudo apt-key list | grep 7A3A762FAFD4A51F
+
+    spotify-client:
+      pkgrepo.managed:
+        - name: deb http://repository.spotify.com stable non-free
+        - file: /etc/apt/sources.list.d/spotify.list
+        - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+
+    spotify:
+      pkg.installed:
+        - name: spotify-client
+        - refresh: True
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/9a66a10f-9233-41db-b4b5-7192b1cda934)
 
@@ -149,13 +156,17 @@ Kaikki komennot yhdistettynä yhdeksi.
 
 `init.sls` tiedoston sisältö
 
+    spotify_key:
+      cmd.run:
+        - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
+        - unless: sudo apt-key list | grep 7A3A762FAFD4A51F
+
     spotify-client:
       pkgrepo.managed:
         - name: deb http://repository.spotify.com stable non-free
         - file: /etc/apt/sources.list.d/spotify.list
         - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-        - key_server: hkp://keyserver.ubuntu.com:80
-        # Lisäsin key serverin testien jälkeen, ongelma korjattu
+
     spotify:
       pkg.installed:
         - name: spotify-client
@@ -264,27 +275,23 @@ Seuraavana Spotify
 
 Ja init tiedosto
 
+    spotify_key:
+      cmd.run:
+        - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
+        - unless: sudo apt-key list | grep 7A3A762FAFD4A51F
+
     spotify-client:
       pkgrepo.managed:
         - name: deb http://repository.spotify.com stable non-free
         - file: /etc/apt/sources.list.d/spotify.list
         - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-        - key_server: hkp://keyserver.ubuntu.com:80
-       # Lisäsin key serverin testien jälkeen, ongelma korjattu 
+
     spotify:
       pkg.installed:
         - name: spotify-client
         - refresh: True
         
 Ja ajo. 
-
-    sudo salt-call state.apply spotify --local
-    
-Ensimmäisellä kerralla sain virheen PUBKEY. Korjasin virheen ajamalle manuaalisesti
-
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
-    
-jonka jälkeen onnistui.
 
     sudo salt-call state.apply spotify --local
 
@@ -303,22 +310,5 @@ https://github.com/mirok99/h7demo
 https://itsfoss.com/install-discord-linux/
 
 
-x
 
-
-    spotify_key:
-      cmd.run:
-        - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
-        - unless: sudo apt-key list | grep 7A3A762FAFD4A51F
-
-    spotify-client:
-      pkgrepo.managed:
-        - name: deb http://repository.spotify.com stable non-free
-        - file: /etc/apt/sources.list.d/spotify.list
-        - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-
-    spotify:
-      pkg.installed:
-        - name: spotify-client
-        - refresh: True
 
