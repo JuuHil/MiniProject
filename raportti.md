@@ -172,6 +172,76 @@ Kaikki komennot yhdistettynä yhdeksi.
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/7ba4b05c-559b-4894-9dbe-8550723b5a81)
 
+## Käyttöönotto
+
+Aloitus tyhjällä koneella Step-by-step
+
+Pakettien päivitys
+
+    sudo apt-get update
+    sudo apt-get -y dist-upgrade
+    
+Palomuuri
+
+    sudo apt-get -y install ufw
+    sudo ufw enable
+
+Micron asennus
+    
+    sudo apt-get install micro
+    
+Saltin asennus
+
+    sudo apt-get install salt-minion
+ 
+Oikeaan paikkaan
+
+    cd srv/
+
+    sudo mkdir salt/
+
+    cd salt/
+    
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/112ba51c-3077-4d05-be3f-f56c3d48a07a)
+
+Kansioiden tekeminen
+
+    sudo mkdir discord
+    sudo mkdir steam
+    sudo mkdir spotify
+    sudo mkdir every
+
+Ensimmäisenä steam
+
+    cd srv/salt/steam
+
+Ja init tiedosto
+
+    micro init.sls
+
+        steam:
+          cmd.run:
+            - name: |
+                wget "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" -O /tmp/steam.deb
+                sudo apt install /tmp/steam.deb
+            - creates: /usr/games/steam
+
+Ja ajo. 
+
+    sudo salt-call state.apply discord --local
+    
+Steam toimii, mutta tarvitsee superuserin salasanan, jotta asennus onnistuu
+
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/30c37eba-b9f8-4d10-a001-05e7ca1d7d89)
+
+Seuraavaksi discord.
+
+
+
+
+
+    
+
 ## Lähteet 
 https://github.com/JuuHil/infra/tree/main/Laksu
 
