@@ -160,6 +160,7 @@ Kaikki komennot yhdistettynä yhdeksi.
     install_wget:
       pkg.installed:
         - name: wget
+        
     spotify_key:
       cmd.run:
         - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
@@ -213,6 +214,12 @@ Micron asennus
 Saltin asennus
 
     sudo apt-get install salt-minion
+    
+Wgetin asennus
+
+    sudo apt-get install wget
+    
+Wgetin asennus on automatisoitu `every` init.sls tiedostossa, mutta asennan ensin kaikki yksitellen ennen viimeistä testiä.    
  
 Oikeaan paikkaan
 
@@ -251,6 +258,9 @@ Ja ajo.
     sudo salt-call state.apply steam --local
     
 Steam toimii, mutta tarvitsee superuserin salasanan, jotta asennus onnistuu
+
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/42cba805-f657-4fa0-b3d0-358eb6f869da)
+
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/30c37eba-b9f8-4d10-a001-05e7ca1d7d89)
 
@@ -301,9 +311,14 @@ Ja ajo.
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/537f4bae-dd79-47d3-9f9e-4aa9608ba81e)
 
-## Lopullinen testi
+## Viimeinen testi
 
-Täysin tyhjä kone.
+Täysin tyhjä kone. Debian 11.6
+
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/ea285e8a-d617-446a-b4b0-76809828f7b7)
+
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/17fafb33-6265-456a-ac29-c691dc6bcb6a)
+
 
 ## Lähteet 
 https://github.com/JuuHil/infra/tree/main/Laksu
