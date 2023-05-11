@@ -1,4 +1,4 @@
-# MiniProject
+# MiniProject (Beta)
 Automating the installation of applications that are useful to me.
 
 Päätin projektin aiheeksi uuden linux desktopin asennuksen saltilla. Valitsin kolme minulle tärkeintä sovellusta asennettaviksi. 
