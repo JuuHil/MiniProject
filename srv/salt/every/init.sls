@@ -1,3 +1,7 @@
+install_wget:
+  pkg.installed:
+    - name: wget
+    
 spotify_key:
   cmd.run:
     - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
