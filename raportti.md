@@ -88,18 +88,19 @@ cat init.sls
 
 ## Discord
 
+Lataa Discordin `wget`in avulla ja tallentaa sen `/tmp` hakemistoon
+ja asentaa Discordin käyttäen aptia. Lisäksi tarkistaa (`creates`) onko /usr/bin/discord jo olemassa, ennenkuin suorittaa komennon, jolloin Salt ei suorita sitä uudelleen, jos Discord on jo asennettuna.
 
-
-        discord:
-  cmd.run:
-    - name: |
-        wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
-        sudo apt install /tmp/discord.deb
-    - creates: /usr/bin/discord
+       discord:
+         cmd.run:
+           - name: |
+               wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+               sudo apt install /tmp/discord.deb
+           - creates: /usr/bin/discord
 
 ## Steam
 
-Kokeilin aluksi käyttää Curlia ladatakseen Steamin, mutta en saanut sitä toimimaan, joten siirryin käyttämään wgettiä.
+Kokeilin aluksi käyttää Curlia (vaihtelun vuoksi) ladatakseen Steamin, mutta en saanut sitä toimimaan, joten siirryin käyttämään `wget`tiä.
 
         steam:
           cmd.run:
