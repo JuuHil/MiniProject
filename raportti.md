@@ -333,6 +333,7 @@ https://github.com/mirok99/h7demo
 
 https://itsfoss.com/install-discord-linux/
 
+https://community.spotify.com/t5/Desktop-Linux/New-public-key/td-p/5306172
 
-
+https://blog.niklas.vuorivirta.fi/2020/04/palvelinten-hallinta-viikko2/
 
