@@ -102,6 +102,8 @@ ja asentaa Discordin käyttäen aptia. Lisäksi tarkistaa (`creates`) onko /usr/
 
 Kokeilin aluksi käyttää Curlia (vaihtelun vuoksi) ladatakseen Steamin, mutta en saanut sitä toimimaan, joten siirryin käyttämään `wget`tiä.
 
+### EI TOIMI
+
         steam:
           cmd.run:
             - name: curl -O https://steamcdn-a.akamaihd.net/client/installer/steam.deb && sudo apt install ./steam.deb
