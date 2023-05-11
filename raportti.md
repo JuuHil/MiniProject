@@ -157,6 +157,9 @@ Kaikki komennot yhdistettynä yhdeksi.
 
 `init.sls` tiedoston sisältö
 
+    install_wget:
+      pkg.installed:
+        - name: wget
     spotify_key:
       cmd.run:
         - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
@@ -298,6 +301,9 @@ Ja ajo.
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/537f4bae-dd79-47d3-9f9e-4aa9608ba81e)
 
+## Lopullinen testi
+
+Täysin tyhjä kone.
 
 ## Lähteet 
 https://github.com/JuuHil/infra/tree/main/Laksu
