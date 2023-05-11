@@ -70,6 +70,8 @@ Päivityksen jälkeen valmista tuli
 # Automatisointi
 
 ## Spotify
+
+
 cat init.sls
 
         spotify-client:
@@ -85,8 +87,8 @@ cat init.sls
             - refresh: True
 
 ## Discord
- 
-cat init.sls 
+
+Discordin asennus pkg.installedilla oli yksinkertainen. - sources määritti latauslähteen, joka on discordin Linux-palvelimen latauslinkki.
 
         discord:
           pkg.installed:
@@ -95,7 +97,7 @@ cat init.sls
 
 ## Steam
 
-EI toimi 
+Kokeilin aluksi käyttää Curlia ladatakseen Steamin, mutta en saanut sitä toimimaan, joten siirryin käyttämään wgettiä.
 
         steam:
           cmd.run:
@@ -103,7 +105,8 @@ EI toimi
             - cwd: /tmp
             - creates: /usr/games/steam
 
-cat init.sls
+`wget`avulla sain asennettua Steamin-paketin ja aptin avulla se asentaa sen.
+creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei suorita sitä uudelleen, jos Steam on jo asennettuna.
 
         steam:
           cmd.run:
