@@ -143,7 +143,7 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
 
 Kaikki komennot yhdistettynä yhdeksi. 
 
-juuhil@pug:/srv/salt/every$ cat init.sls 
+`init.sls` tiedoston sisältö
 
     spotify-client:
       pkgrepo.managed:
