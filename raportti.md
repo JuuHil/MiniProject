@@ -153,7 +153,7 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
 
 ## Värisuora
 
-Kaikki komennot yhdistettynä yhdeksi. 
+Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
 
 `init.sls` tiedoston sisältö
 
