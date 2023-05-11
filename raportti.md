@@ -72,37 +72,37 @@ Päivityksen jälkeen valmista tuli
 ## Spotify
 cat init.sls
 
-spotify-client:
-  pkgrepo.managed:
-    - humanname: Spotify Repository
-    - name: deb http://repository.spotify.com stable non-free
-    - file: /etc/apt/sources.list.d/spotify.list
-    - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+        spotify-client:
+          pkgrepo.managed:
+            - humanname: Spotify Repository
+            - name: deb http://repository.spotify.com stable non-free
+            - file: /etc/apt/sources.list.d/spotify.list
+            - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
 
-spotify:
-  pkg.installed:
-    - name: spotify-client
-    - refresh: True
+        spotify:
+          pkg.installed:
+            - name: spotify-client
+            - refresh: True
 
 ## Discord
  
 cat init.sls 
 
-discord:
-  pkg.installed:
-    - sources:
-      - discord: https://discord.com/api/download?platform=linux&format=deb
+        discord:
+          pkg.installed:
+            - sources:
+              - discord: https://discord.com/api/download?platform=linux&format=deb
 
 ## Steam
 
 cat init.sls
 
-steam:
-  cmd.run:
-    - name: |
-        wget "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" -O /tmp/steam.deb
-        sudo apt install /tmp/steam.deb
-    - creates: /usr/games/steam
+        steam:
+          cmd.run:
+            - name: |
+                wget "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" -O /tmp/steam.deb
+                sudo apt install /tmp/steam.deb
+            - creates: /usr/games/steam
 
 
 
