@@ -78,7 +78,7 @@ name: lähde mistä paketit ladataan (URL-osoite)
 file: tiedoston sijainti
 key_url: osoite jossa julkinen avain. (URL-osoite)
 key_server: määrittää käyttämään Ubuntu-avainpalvelinta ladatakseen julkisen avaimen.
-
+ # Lisäsin key serverin testien jälkeen, ongelma korjattu 
 pkg.installed:
 name: nimi paketille, joka asennetaan.
 refresh: päivittää pakettivaraston ennen paketin asentamista.
@@ -93,6 +93,7 @@ refresh: päivittää pakettivaraston ennen paketin asentamista.
             - file: /etc/apt/sources.list.d/spotify.list
             - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
             - key_server: hkp://keyserver.ubuntu.com:80
+            # Lisäsin key serverin testien jälkeen, ongelma korjattu 
         spotify:
           pkg.installed:
             - name: spotify-client
@@ -154,7 +155,7 @@ Kaikki komennot yhdistettynä yhdeksi.
         - file: /etc/apt/sources.list.d/spotify.list
         - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
         - key_server: hkp://keyserver.ubuntu.com:80
-        
+        # Lisäsin key serverin testien jälkeen, ongelma korjattu
     spotify:
       pkg.installed:
         - name: spotify-client
@@ -269,7 +270,7 @@ Ja init tiedosto
         - file: /etc/apt/sources.list.d/spotify.list
         - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
         - key_server: hkp://keyserver.ubuntu.com:80
-        
+       # Lisäsin key serverin testien jälkeen, ongelma korjattu 
     spotify:
       pkg.installed:
         - name: spotify-client
@@ -300,7 +301,4 @@ https://www.spotify.com/fi/download/linux/
 https://github.com/mirok99/h7demo
 
 https://itsfoss.com/install-discord-linux/
-
-
-
 
