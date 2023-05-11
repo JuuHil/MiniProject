@@ -317,6 +317,8 @@ Täysin tyhjä kone. Debian 11.6
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/ea285e8a-d617-446a-b4b0-76809828f7b7)
 
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/d102fbea-51fd-421e-b4cd-db75d26874b0)
+
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/17fafb33-6265-456a-ac29-c691dc6bcb6a)
 
 
