@@ -1,6 +1,6 @@
-## J
+## Johdanto
 
-Minulle tärkeitä sovelluksia linuxille ja windowsille automatisoitu saltilla.
+Minulle tärkeitä sovelluksia linuxille automatisoitu saltilla.
 
 ## Rauta
 
