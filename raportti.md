@@ -71,12 +71,21 @@ Päivityksen jälkeen valmista tuli
 
 ## Spotify
 
+Spotifyn kanssa oli eniten ongelmia, joten se ensimmäisenä. Spotifyn asentamisessa manuaalisesti piti määrittää Spotifyn Debian-varasto jonka jälkeen pystyi vasta asentamaan Spotifyn.
 
-cat init.sls
+pkgrepo.managed: 
+name: lähde mistä paketit ladataan (URL-osoite)
+file: tiedoston sijainti
+key_url: osoite jossa julkinen avain. (URL-osoite)
+
+pkg.installed:
+name: nimi paketille, joka asennetaan.
+refresh: päivittää pakettivaraston ennen paketin asentamista.
+
+`init.sls` tiedoston sisältö
 
         spotify-client:
           pkgrepo.managed:
-            - humanname: Spotify Repository
             - name: deb http://repository.spotify.com stable non-free
             - file: /etc/apt/sources.list.d/spotify.list
             - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
@@ -86,10 +95,14 @@ cat init.sls
             - name: spotify-client
             - refresh: True
 
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/9a66a10f-9233-41db-b4b5-7192b1cda934)
+
 ## Discord
 
 Lataa Discordin `wget`in avulla ja tallentaa sen `/tmp` hakemistoon
 ja asentaa Discordin käyttäen aptia. Lisäksi tarkistaa (`creates`) onko /usr/bin/discord jo olemassa, ennenkuin suorittaa komennon, jolloin Salt ei suorita sitä uudelleen, jos Discord on jo asennettuna.
+
+`init.sls` tiedoston sisältö
 
        discord:
          cmd.run:
@@ -104,6 +117,8 @@ Kokeilin aluksi käyttää Curlia (vaihtelun vuoksi) ladatakseen Steamin, mutta 
 
 ### EI TOIMI
 
+`init.sls` tiedoston sisältö
+
         steam:
           cmd.run:
             - name: curl -O https://steamcdn-a.akamaihd.net/client/installer/steam.deb && sudo apt install ./steam.deb
@@ -115,6 +130,8 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
 
 ### TOIMII
 
+`init.sls` tiedoston sisältö
+
         steam:
           cmd.run:
             - name: |
@@ -123,6 +140,8 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
             - creates: /usr/games/steam
 
 ## Värisuora
+
+Kaikki komennot yhdistettynä yhdeksi. 
 
 juuhil@pug:/srv/salt/every$ cat init.sls 
 
@@ -151,6 +170,8 @@ juuhil@pug:/srv/salt/every$ cat init.sls
             wget "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" -O /tmp/steam.deb
             sudo apt install /tmp/steam.deb
         - creates: /usr/games/steam
+
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/7ba4b05c-559b-4894-9dbe-8550723b5a81)
 
 
 
