@@ -77,10 +77,13 @@ pkgrepo.managed:
 name: lähde mistä paketit ladataan (URL-osoite)
 file: tiedoston sijainti
 key_url: osoite jossa julkinen avain. (URL-osoite)
+key_server: määrittää käyttämään Ubuntu-avainpalvelinta ladatakseen julkisen avaimen.
 
 pkg.installed:
 name: nimi paketille, joka asennetaan.
 refresh: päivittää pakettivaraston ennen paketin asentamista.
+
+*JOS EI TOIMI* lisää manuaalisesti ensin `sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F`
 
 `init.sls` tiedoston sisältö
 
@@ -89,7 +92,7 @@ refresh: päivittää pakettivaraston ennen paketin asentamista.
             - name: deb http://repository.spotify.com stable non-free
             - file: /etc/apt/sources.list.d/spotify.list
             - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-
+            - key_server: hkp://keyserver.ubuntu.com:80
         spotify:
           pkg.installed:
             - name: spotify-client
@@ -150,7 +153,8 @@ Kaikki komennot yhdistettynä yhdeksi.
         - name: deb http://repository.spotify.com stable non-free
         - file: /etc/apt/sources.list.d/spotify.list
         - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
-
+        - key_server: hkp://keyserver.ubuntu.com:80
+        
     spotify:
       pkg.installed:
         - name: spotify-client
@@ -255,8 +259,36 @@ Ja ajo.
 
 Seuraavana Spotify
 
+    cd /srv/salt/spotify
 
+Ja init tiedosto
+
+    spotify-client:
+      pkgrepo.managed:
+        - name: deb http://repository.spotify.com stable non-free
+        - file: /etc/apt/sources.list.d/spotify.list
+        - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
+        - key_server: hkp://keyserver.ubuntu.com:80
+        
+    spotify:
+      pkg.installed:
+        - name: spotify-client
+        - refresh: True
+        
+Ja ajo. 
+
+    sudo salt-call state.apply spotify --local
     
+Ensimmäisellä kerralla sain virheen PUBKEY. Korjasin virheen ajamalle manuaalisesti
+
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
+    
+jonka jälkeen onnistui.
+
+    sudo salt-call state.apply spotify --local
+
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/537f4bae-dd79-47d3-9f9e-4aa9608ba81e)
+
 
 ## Lähteet 
 https://github.com/JuuHil/infra/tree/main/Laksu
