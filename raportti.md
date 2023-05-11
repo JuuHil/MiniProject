@@ -173,6 +173,7 @@ Kaikki komennot yhdistettynä yhdeksi.
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/7ba4b05c-559b-4894-9dbe-8550723b5a81)
 
 ## Lähteet 
+https://github.com/JuuHil/infra/tree/main/Laksu
 
 https://terokarvinen.com/2023/palvelinten-hallinta-2023-kevat/
 
