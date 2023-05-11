@@ -95,6 +95,14 @@ cat init.sls
 
 ## Steam
 
+EI toimi 
+
+        steam:
+          cmd.run:
+            - name: curl -O https://steamcdn-a.akamaihd.net/client/installer/steam.deb && sudo apt install ./steam.deb
+            - cwd: /tmp
+            - creates: /usr/games/steam
+
 cat init.sls
 
         steam:
