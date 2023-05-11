@@ -88,12 +88,14 @@ cat init.sls
 
 ## Discord
 
-Discordin asennus pkg.installedilla oli yksinkertainen. - sources määritti latauslähteen, joka on discordin Linux-palvelimen latauslinkki.
+
 
         discord:
-          pkg.installed:
-            - sources:
-              - discord: https://discord.com/api/download?platform=linux&format=deb
+  cmd.run:
+    - name: |
+        wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+        sudo apt install /tmp/discord.deb
+    - creates: /usr/bin/discord
 
 ## Steam
 
