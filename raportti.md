@@ -228,7 +228,7 @@ Ja init tiedosto
 
 Ja ajo. 
 
-    sudo salt-call state.apply discord --local
+    sudo salt-call state.apply steam --local
     
 Steam toimii, mutta tarvitsee superuserin salasanan, jotta asennus onnistuu
 
@@ -236,8 +236,24 @@ Steam toimii, mutta tarvitsee superuserin salasanan, jotta asennus onnistuu
 
 Seuraavaksi discord.
 
+    cd /srv/salt/discord
+    
+Ja init tiedosto
 
+    discord:
+      cmd.run:
+        - name: |
+            wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+            sudo apt install /tmp/discord.deb
+        - creates: /usr/bin/discord
 
+Ja ajo.
+
+    sudo salt-call state.apply discord --local
+    
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/eb7fbbf7-e3dd-4a0b-b146-3cdc43433f31)
+
+Seuraavana Spotify
 
 
     
