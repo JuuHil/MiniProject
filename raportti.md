@@ -116,12 +116,14 @@ ja asentaa Discordin käyttäen aptia. Lisäksi tarkistaa (`creates`) onko /usr/
 
 `init.sls` tiedoston sisältö
 
-       discord:
-         cmd.run:
-           - name: |
-               wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
-               sudo apt install /tmp/discord.deb
-           - creates: /usr/bin/discord
+    discord:
+      cmd.run:
+        - name: |
+            wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+            sudo dpkg -i /tmp/discord.deb
+        - creates: /usr/bin/discord
+        - require: 
+            - pkg: install_libc++1
 
 ## Steam
 
@@ -153,7 +155,7 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
 
 ## Värisuora
 
-Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
+Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty + libc++1 lisätty
 
     `init.sls` tiedoston sisältö
 
@@ -192,7 +194,7 @@ Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
       cmd.run:
         - name: |
             wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
-            sudo apt install /tmp/discord.deb
+            sudo dpkg -i /tmp/discord.deb
         - creates: /usr/bin/discord
         - require: 
             - pkg: install_libc++1
