@@ -6,6 +6,10 @@ install_libc++1:
   pkg.installed:
     - name: libc++1
     
+fix_dependencies:
+  cmd.run:
+    - name: sudo apt --fix-broken install
+
 spotify_key:
   cmd.run:
     - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
