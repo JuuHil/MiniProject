@@ -155,12 +155,16 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
 
 Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
 
-`init.sls` tiedoston sisältö
+    `init.sls` tiedoston sisältö
 
-    install_wget:
+       install_wget:
       pkg.installed:
         - name: wget
-        
+
+    install_libc++1:
+      pkg.installed:
+        - name: libc++1
+
     spotify_key:
       cmd.run:
         - name: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7A3A762FAFD4A51F
@@ -168,7 +172,7 @@ Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
 
     spotify-client:
       pkgrepo.managed:
-        - name: deb http://repository.spotify.com stable non-free
+        - name: deb http://repository.spotify.com stable non-free  
         - file: /etc/apt/sources.list.d/spotify.list
         - key_url: https://download.spotify.com/debian/pubkey_0D811D58.gpg
 
@@ -176,13 +180,6 @@ Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
       pkg.installed:
         - name: spotify-client
         - refresh: True
-        
-    discord:
-      cmd.run:
-        - name: |
-            wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
-            sudo apt install /tmp/discord.deb
-        - creates: /usr/bin/discord
 
     steam:
       cmd.run:
@@ -190,6 +187,15 @@ Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty
             wget "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" -O /tmp/steam.deb
             sudo apt install /tmp/steam.deb
         - creates: /usr/games/steam
+
+    discord:
+      cmd.run:
+        - name: |
+            wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+            sudo apt install /tmp/discord.deb
+        - creates: /usr/bin/discord
+        - require: 
+            - pkg: install_libc++1
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/7ba4b05c-559b-4894-9dbe-8550723b5a81)
 
