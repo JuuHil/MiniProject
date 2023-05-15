@@ -324,13 +324,10 @@ Täysin tyhjä kone. Debian 11.6
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/2704027c-7f30-4e50-8694-5e723a32134e)
 
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/35335f84-2b65-4737-bdc4-eec5b2352d92)
 
-VANHA 
 
-![image](https://github.com/JuuHil/MiniProject/assets/122887067/d102fbea-51fd-421e-b4cd-db75d26874b0)
-
-![image](https://github.com/JuuHil/MiniProject/assets/122887067/17fafb33-6265-456a-ac29-c691dc6bcb6a)
-
+![image](https://github.com/JuuHil/MiniProject/assets/122887067/7eaf989e-33ce-43f0-9fcb-e31a9a52cdd5)
 
 ## Lähteet 
 https://github.com/JuuHil/infra/tree/main/Laksu
