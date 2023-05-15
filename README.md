@@ -10,3 +10,5 @@ Alustana toimi VirtualBox 7.0.6 ja Debian 11.6.0
 ## Demo video
 
 [![demovideo linkki](https://upload.wikimedia.org/wikipedia/commons/0/05/Logo_of_YouTube_%282006-2011%29.svg)](https://youtu.be/_LXjPoz8TYc)
+
+https://youtu.be/_LXjPoz8TYc
