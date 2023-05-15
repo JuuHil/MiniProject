@@ -155,7 +155,8 @@ creates tarkistaa onko /usr/games/steam tiedosto jo olemassa, jolloin Salt ei su
 
 ## Värisuora
 
-Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty + libc++1 lisätty + fix_dependencies, jouduttu lisäämään libc++1 asennus ongelmien takia.
+Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty + libc++1 lisätty + fix_dependencies, jouduttu lisäämään libc++1 asennus ongelmien takia. En nähnyt kuitenkaan tarvetta lisätä sovelluksiin `require` lohkoa, johon olisin lisänny `fix_dependencies`, koska se näköjään toimi ilman. Ennenkuin lisäsin `fix_dependencies` kohdan, jäi tilan suorittaminen jumiin discordin asennukseen eikä edennyt.
+
 `init.sls` tiedoston sisältö
 
 
