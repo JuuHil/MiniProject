@@ -331,6 +331,7 @@ Täysin tyhjä kone. Debian 11.6
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/35335f84-2b65-4737-bdc4-eec5b2352d92)
 
+Löytyy täältä: https://github.com/JuuHil/MiniProject/blob/main/srv/salt/every/init.sls
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/7eaf989e-33ce-43f0-9fcb-e31a9a52cdd5)
 
