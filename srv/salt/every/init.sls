@@ -1,6 +1,10 @@
 install_wget:
   pkg.installed:
     - name: wget
+   
+install_libc++1:
+  pkg.installed:
+    - name: libc++1
     
 spotify_key:
   cmd.run:
@@ -18,16 +22,18 @@ spotify:
     - name: spotify-client
     - refresh: True
 
-discord:
-  cmd.run:
-    - name: |
-        wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
-        sudo apt install /tmp/discord.deb
-    - creates: /usr/bin/discord
-
 steam:
   cmd.run:
     - name: |
         wget "https://steamcdn-a.akamaihd.net/client/installer/steam.deb" -O /tmp/steam.deb
         sudo apt install /tmp/steam.deb
     - creates: /usr/games/steam
+
+discord:
+  cmd.run:
+    - name: |
+        wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
+        sudo apt install /tmp/discord.deb
+    - creates: /usr/bin/discord
+    - require: 
+        - pkg: install_libc++1
