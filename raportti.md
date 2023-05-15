@@ -11,11 +11,9 @@ Minulle tärkeitä sovelluksia linuxille automatisoitu saltilla.
     OS:   Windows 11 Pro, Versio 22H2
     
 ## Versiot. 
-    
-    Windows 11 Pro, Versio 22H2
-    Vagrant 2.3.4
+   
     Salt 3002.6
-    debian 5.10.158-2
+    Debian 11.6
     
 
 # Linuxille käsin asennus
