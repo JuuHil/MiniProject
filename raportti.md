@@ -122,8 +122,8 @@ ja asentaa Discordin käyttäen aptia. Lisäksi tarkistaa (`creates`) onko /usr/
             wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
             sudo dpkg -i /tmp/discord.deb
         - creates: /usr/bin/discord
-        - require: 
-            - pkg: install_libc++1
+
+Lisäsin myöhemmin require kohdan, jotta libc++1 lataus suoritetaan ennen discordia.
 
 ## Steam
 
@@ -196,8 +196,7 @@ Kaikki komennot yhdistettynä yhdeksi. + ``wget` lisätty + libc++1 lisätty
             wget "https://discord.com/api/download?platform=linux&format=deb" -O /tmp/discord.deb
             sudo dpkg -i /tmp/discord.deb
         - creates: /usr/bin/discord
-        - require: 
-            - pkg: install_libc++1
+        
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/7ba4b05c-559b-4894-9dbe-8550723b5a81)
 
@@ -324,6 +323,9 @@ Ja ajo.
 Täysin tyhjä kone. Debian 11.6
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/2704027c-7f30-4e50-8694-5e723a32134e)
+
+
+VANHA 
 
 ![image](https://github.com/JuuHil/MiniProject/assets/122887067/d102fbea-51fd-421e-b4cd-db75d26874b0)
 
