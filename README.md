@@ -9,7 +9,4 @@ Alustana toimi VirtualBox 7.0.6 ja Debian 11.6.0
 
 ## Demo video
 
-[![linkki videoon]()](https://youtu.be/_LXjPoz8TYc)
-
-
-[![IMAGE ALT TEXT HERE](https://github.com/JuuHil/MiniProject/assets/122887067/86ab8359-f645-48d4-a53f-bc79f133044a)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![IMAGE ALT TEXT HERE](https://upload.wikimedia.org/wikipedia/commons/0/05/Logo_of_YouTube_%282006-2011%29.svg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
