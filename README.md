@@ -11,4 +11,4 @@ Alustana toimi VirtualBox 7.0.6 ja Debian 11.6.0
 
 [![linkki videoon](https://github.com/JuuHil/MiniProject/assets/122887067/86ab8359-f645-48d4-a53f-bc79f133044a)](https://youtu.be/_LXjPoz8TYc)
 
-[![IMAGE ALT TEXT HERE](https://github.com/JuuHil/MiniProject/assets/122887067/86ab8359-f645-48d4-a53f-bc79f133044a)](https://youtu.be/_LXjPoz8TYc)
+
